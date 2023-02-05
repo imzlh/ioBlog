@@ -1,0 +1,41 @@
+{
+    "info":{
+        "name":"myTheme",
+        "author":"imzlh",
+        "link":"https://imzlh.top/project/theme",
+        "desc":"简单明了的默认主题",
+        "version":"0.1",
+        "depends":[
+            
+        ],
+        "require":[
+            "style.php"
+        ],
+        "remove":"remove.php"
+    },
+    "config":{
+        "icon":{
+            "type":"input",
+            "itype":"url",
+            "default":"",
+            "desc":"显示在浏览器标题栏、页面首尾的标题",
+            "name":"站点图标",
+            "require":false
+        },
+        "bg":{
+            "type":"select",
+            "name":"背景颜色",
+            "item":{
+                "灰色":"gray",
+                "黄色":"yellow",
+                "白色":"white"
+            },
+            "default":"gray",
+            "desc":"站点背景颜色，不难理解吧"
+        }
+    },
+    "value":{
+        "icon":"",
+        "bg":"red"
+    }
+}

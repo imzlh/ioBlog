@@ -1,0 +1,390 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+/* 顶部内容 */
+div.head{
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    opacity: 80%;
+    width: 100vw;
+}
+/* noscript美化 */
+noscript{
+    content: "没有JS将无法运行ioPanel!请启用JS";
+    text-align: center;
+    display: block;
+    background-color: lightcoral;
+    color: whitesmoke;
+}
+
+/* 导航栏 */
+nav.head{
+    display: block;
+    border-bottom: solid 1px Aqua;
+    background-color: white;
+    padding: 0.5rem;
+    background-color: white;
+}
+/* 导航栏标题 */
+nav.head span{
+    margin: 1rem;
+    font-size: 2em;
+}
+/* 导航 */
+nav.head ul {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    float: right;
+}
+nav.head li {
+    display: inline-block;
+    border: solid 1px lightgray;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    width: 60px;
+    transition: background-color 1s;
+    cursor: pointer;
+}
+nav.head li:hover{
+    background-color: lightgray;
+}
+nav.head li:active{
+    background-color: gray;
+    border: solid 3px aquamarine;
+}
+
+/* 下菜单 */
+.dropmenu:hover > .drop{
+    display: block;
+}
+.drop{
+    display: none;
+    position: absolute;
+    min-width: 100px;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    border-radius: 0.3rem;
+    border: solid 1px lightgray;
+    background-color: white;
+    z-index: 1;
+    margin-top: 0.5rem;
+    margin-left: -1rem;
+}
+.drop a{
+    display: block;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background-color 1s;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+.drop a:hover{
+    background-color: lightgray;
+}
+.drop a:active{
+    background-color: gray;
+}
+.dropmenu .drop hr{
+    color: gray;
+}
+/* 提示框 */
+.alert{
+    padding: 10px;
+    border-radius: 6px;
+    background-color: lightslategrey;
+    margin-bottom: 10px;
+}
+/* 弹出窗口 */
+.window{
+    position: fixed;
+    top: 20vh;
+    left: 20vw;
+    width: 60vw;
+    height: 60vh;
+    border-radius: 5px;
+    resize: both;
+    overflow: auto;
+    border: solid gray 1px;
+    background-color: white;
+}
+.window .whead{
+    padding: 10px;
+    padding-left: 15px;
+}
+.btn-close::before{
+    content: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0iYmkgYmkteCIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICA8cGF0aCBkPSJNNC42NDYgNC42NDZhLjUuNSAwIDAgMSAuNzA4IDBMOCA3LjI5M2wyLjY0Ni0yLjY0N2EuNS41IDAgMCAxIC43MDguNzA4TDguNzA3IDhsMi42NDcgMi42NDZhLjUuNSAwIDAgMS0uNzA4LjcwOEw4IDguNzA3bC0yLjY0NiAyLjY0N2EuNS41IDAgMCAxLS43MDgtLjcwOEw3LjI5MyA4IDQuNjQ2IDUuMzU0YS41LjUgMCAwIDEgMC0uNzA4eiIvPgo8L3N2Zz4=');    
+    float: right;
+    cursor: pointer;
+}
+/* 右侧工具 */
+#msgBox{
+    position: fixed;
+    top: 60px;
+    right: 60px;
+    max-width: 400px;
+    width: 100%;
+}
+#toolBox{
+    position: fixed;
+    bottom: 60px;
+    right: 60px;
+    background-color: rgb(231, 229, 229);
+    padding: 10px;
+    border-radius: 30px;
+    opacity: 50%;
+    transition: opacity 1s;
+}
+#toolBox:hover{
+    opacity: 80%;
+}
+/* 登录页 */
+#page_login{
+    height: 400px;
+    width: 400px;
+    position: fixed;
+    top: calc(50% - 200px);
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: white;
+    opacity: 80%;
+    box-shadow: white 0 0 30px 20px;
+}
+/* 主页 */
+#page_home{
+    margin-top: 5rem;
+    display: flex;
+}
+#page_home > div{
+    box-sizing: border-box;
+    margin: 1rem;
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 8px;
+}
+#tool svg{
+    display: block;
+    width: 2cm;
+}
+/* 小盒子 */
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+.box > div{
+    margin: 1rem;
+}
+/* 写文章 */
+#page_post_write{
+    width: 100vw;
+    height: 100vh;
+    padding-top: 5rem;
+}
+#__full > *{
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 0;
+}
+
+
+/**
+ * CSS通用类
+ * 在全局都可用！
+ */
+.hide{
+    display: none;
+}
+.center{
+    margin: auto;
+}
+/* 可被按下的内容 */
+.href{
+    border-radius: 8px;
+    padding: 10px;
+    transition: background 1s;
+    cursor: pointer;
+}
+.href:hover{
+    background-color: rgb(192, 190, 190);
+}
+.href:active{
+    background-color: gray;
+}
+/* 上下左右居中 */
+.y-center{
+    position: fixed;
+    top: auto;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+/* 左边框 */
+.lb{
+    border-left: solid 5px Aqua;
+    background-color: rgba(203, 203, 203, 0.5);
+    text-indent: 0.5em;
+}
+.line-input{
+    border: 0;
+    border-radius: 0;
+    border-bottom: 3px red solid;
+    width: 70%;
+    float: right;
+    min-width: 200px;
+}
+.line-input:hover{
+    border-bottom-style: dashed;
+}
+.line-input:hover{
+    border-style: dotted;
+}
+.line-input:current{
+    border-color: green;
+}
+/* 链接美化 */
+a{
+    text-decoration: none;
+    transition: color 1s;
+    color: cornflowerblue;
+    padding: 5px;
+}
+a:hover{
+    color: blue;
+    border-bottom: 1px Aqua solid;
+}
+a:visited{
+    border-bottom: 1px lightblue solid;
+}
+/* 浮动选项 */
+.right{
+    float: right;
+}
+.left{
+    float: left;
+}
+/* 按钮 */
+button {
+    background-color: rgb(21, 123, 174);
+    border: none;
+    color: white;
+    padding: 8px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border-radius: 10px;
+    display: inline-block;
+}
+button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+/* 鼠标类型 */
+.moveable{
+    cursor: move;
+}
+.click{
+    cursor: pointer;
+}
+/* 大输入框 */
+.lg-input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: whitesmoke;    
+    display: block;
+}
+.lg-input:hover{
+    border: none;
+}
+/* SVG框 */
+.svgGroup > svg{
+    display: inline-block;
+    padding: 5px;
+    height: 30px;
+    border-radius: 20px;
+    transition: background 1s;
+}
+.svgGroup > svg:hover{
+    background-color: lightgray;
+}
+.svgGroup > svg:active{
+    background-color: gray;
+}
+/* 按钮组(ul) */
+ul.group{
+    text-decoration: none;
+    padding: 10px;
+}
+ul.group > li{
+    display: block;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 0.8rem;
+    opacity: 0.6;
+    cursor: pointer;
+    padding: 10px;
+}
+ul.group > li:hover{
+    background-color: lightgray;
+}
+ul.svgGroup > li:active{
+    background-color: gray;
+}
+/* 当鼠标浮动显示 */
+.overShow:hover .__show{
+    display: block;
+}
+/* 文件上传美化 */
+.fileDrop{
+    border: dashed 3px Aqua;
+    border-radius: 5px;
+    padding: 80px 50px;
+    box-sizing: border-box;
+    width: 100%;
+    content: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0iYmkgYmktY2xvdWQtYXJyb3ctdXAtZmlsbCIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICA8cGF0aCBkPSJNOCAyYTUuNTMgNS41MyAwIDAgMC0zLjU5NCAxLjM0MmMtLjc2Ni42Ni0xLjMyMSAxLjUyLTEuNDY0IDIuMzgzQzEuMjY2IDYuMDk1IDAgNy41NTUgMCA5LjMxOCAwIDExLjM2NiAxLjcwOCAxMyAzLjc4MSAxM2g4LjkwNkMxNC41MDIgMTMgMTYgMTEuNTcgMTYgOS43NzNjMC0xLjYzNi0xLjI0Mi0yLjk2OS0yLjgzNC0zLjE5NEMxMi45MjMgMy45OTkgMTAuNjkgMiA4IDJ6bTIuMzU0IDUuMTQ2YS41LjUgMCAwIDEtLjcwOC43MDhMOC41IDYuNzA3VjEwLjVhLjUuNSAwIDAgMS0xIDBWNi43MDdMNi4zNTQgNy44NTRhLjUuNSAwIDEgMS0uNzA4LS43MDhsMi0yYS41LjUgMCAwIDEgLjcwOCAwbDIgMnoiLz4KPC9zdmc+');
+}
+
+/**
+ * CSS字体图片
+ */
+i{
+    padding: 5px 10px;
+    border-radius: 3px;
+    border: solid lightseagreen 1px;
+    background-color: white;
+    transition: background 1s,box-shadow 0.5s;
+}
+i:hover{
+    background-color: lightseagreen;
+}
+i:active{
+    box-shadow: 0 0 10px 10px gray;
+}
+i.del::before{
+    content: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0iYmkgYmkteC1jaXJjbGUiIHZpZXdCb3g9IjAgMCAxNiAxNiI+CiAgPHBhdGggZD0iTTggMTVBNyA3IDAgMSAxIDggMWE3IDcgMCAwIDEgMCAxNHptMCAxQTggOCAwIDEgMCA4IDBhOCA4IDAgMCAwIDAgMTZ6Ii8+CiAgPHBhdGggZD0iTTQuNjQ2IDQuNjQ2YS41LjUgMCAwIDEgLjcwOCAwTDggNy4yOTNsMi42NDYtMi42NDdhLjUuNSAwIDAgMSAuNzA4LjcwOEw4LjcwNyA4bDIuNjQ3IDIuNjQ2YS41LjUgMCAwIDEtLjcwOC43MDhMOCA4LjcwN2wtMi42NDYgMi42NDdhLjUuNSAwIDAgMS0uNzA4LS43MDhMNy4yOTMgOCA0LjY0NiA1LjM1NGEuNS41IDAgMCAxIDAtLjcwOHoiLz4KPC9zdmc+');
+}
+i.save::before{
+    content: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0iYmkgYmktY2hlY2syIiB2aWV3Qm94PSIwIDAgMTYgMTYiPgogIDxwYXRoIGQ9Ik0xMy44NTQgMy42NDZhLjUuNSAwIDAgMSAwIC43MDhsLTcgN2EuNS41IDAgMCAxLS43MDggMGwtMy41LTMuNWEuNS41IDAgMSAxIC43MDgtLjcwOEw2LjUgMTAuMjkzbDYuNjQ2LTYuNjQ3YS41LjUgMCAwIDEgLjcwOCAweiIvPgo8L3N2Zz4=');
+}
+i.hide::before{
+    content: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0iYmkgYmktYmFjayIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICA8cGF0aCBkPSJNMCAyYTIgMiAwIDAgMSAyLTJoOGEyIDIgMCAwIDEgMiAydjJoMmEyIDIgMCAwIDEgMiAydjhhMiAyIDAgMCAxLTIgMkg2YTIgMiAwIDAgMS0yLTJ2LTJIMmEyIDIgMCAwIDEtMi0yVjJ6bTItMWExIDEgMCAwIDAtMSAxdjhhMSAxIDAgMCAwIDEgMWg4YTEgMSAwIDAgMCAxLTFWMmExIDEgMCAwIDAtMS0xSDJ6Ii8+Cjwvc3ZnPg==');
+}
+i.link::before{
+    content: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0iYmkgYmktbGluay00NWRlZyIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICA8cGF0aCBkPSJNNC43MTUgNi41NDIgMy4zNDMgNy45MTRhMyAzIDAgMSAwIDQuMjQzIDQuMjQzbDEuODI4LTEuODI5QTMgMyAwIDAgMCA4LjU4NiA1LjVMOCA2LjA4NmExLjAwMiAxLjAwMiAwIDAgMC0uMTU0LjE5OSAyIDIgMCAwIDEgLjg2MSAzLjMzN0w2Ljg4IDExLjQ1YTIgMiAwIDEgMS0yLjgzLTIuODNsLjc5My0uNzkyYTQuMDE4IDQuMDE4IDAgMCAxLS4xMjgtMS4yODd6Ii8+CiAgPHBhdGggZD0iTTYuNTg2IDQuNjcyQTMgMyAwIDAgMCA3LjQxNCA5LjVsLjc3NS0uNzc2YTIgMiAwIDAgMS0uODk2LTMuMzQ2TDkuMTIgMy41NWEyIDIgMCAxIDEgMi44MyAyLjgzbC0uNzkzLjc5MmMuMTEyLjQyLjE1NS44NTUuMTI4IDEuMjg3bDEuMzcyLTEuMzcyYTMgMyAwIDEgMC00LjI0My00LjI0M0w2LjU4NiA0LjY3MnoiLz4KPC9zdmc+');
+}
+i.goto::before{
+    content: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0iYmkgYmktYXJyb3ctcmlnaHQtY2lyY2xlLWZpbGwiIHZpZXdCb3g9IjAgMCAxNiAxNiI+CiAgPHBhdGggZD0iTTggMGE4IDggMCAxIDEgMCAxNkE4IDggMCAwIDEgOCAwek00LjUgNy41YS41LjUgMCAwIDAgMCAxaDUuNzkzbC0yLjE0NyAyLjE0NmEuNS41IDAgMCAwIC43MDguNzA4bDMtM2EuNS41IDAgMCAwIDAtLjcwOGwtMy0zYS41LjUgMCAxIDAtLjcwOC43MDhMMTAuMjkzIDcuNUg0LjV6Ii8+Cjwvc3ZnPg==');
+}

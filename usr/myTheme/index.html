@@ -1,0 +1,18 @@
+{{$head=$config.blog.name--$config.blog.desc}}
+{{$root=/usr/myTheme/}}
+{{%include head.html}}
+{{:循环输出文章}}
+<div class="maindiv">
+    <form action="/search" method="GET" style="display:block">
+        <input style="float:right;border:none;border-bottom: 1px Aqua solid;padding: 10px;" value="{{@client.param.w:在这里搜索,回车搜索}}" name="w">
+    </form>
+    <a href="http://{{$config.blog.url}}"><h1>{{$config.blog.name}}</h1></a>
+    <p>{{$config.blog.desc}}</p>
+</div>
+{{{
+<div class="maindiv" onclick="location.href = '{loop.href}'">
+    <h1><span style="color:red">{loop.count}</span>{loop.title}</h1>
+    <p>{loop.desc}</p>
+</div>
+}}}
+{{%include end.html}}

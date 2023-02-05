@@ -1,0 +1,45 @@
+{{:极简设置:标题,这些是看不到滴}}
+{{$head=$post.title--$config.blog.desc}}
+{{:root必须设，否则cache.*和include都不可用}}
+{{$root=/usr/myTheme/}}
+{{%include head.html}}
+<style>
+    .comment-page{
+        background-color: lightgray;
+        padding: 20px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+    }
+    .comment-page > h3{
+        float: left;
+        display: inline;
+        padding-right: 30px;
+    }
+    a{
+        text-decoration: none;
+    }
+</style>
+<div class="maindiv">
+    {{:izBlog的格式化属性,不允许空格}}
+    <h1>{{$post.title}}</h1>
+    {{:izBlog的date属性与PHP date()的参数一致}}
+    <p>作者:{{$post.author}} || 发布日期:{{$post.date}} || 当前时间:{{$date.Y-m-d}}</p>
+</div>
+<div class="maindiv">
+    {{:查阅源码获取更多可用选项}}
+    {{$post.body}}
+    <hr>
+    <h3>看完了？留下足迹吧！</h3>
+    <form action="/api/comment?from=post&to={{$post.time}}" accept-charset="utf-8" enctype="application/x-www-form-urlencoded" method="post">
+        <div style="display: flex;">
+            <p>昵称:<input type="text" name="name" required></p>
+            <p>邮箱:<input type="email" name="email" required></p>
+            <p>网站:<input type="url" name="link"></p>
+        </div>
+        <textarea style="width: 100%; height: 100px;display: block;" name="content">这里写评论，不支持MarkDown</textarea>
+        <button type="submit">提交!</button>
+    </form>
+    <h3>看看大家说了什么？</h3>
+    {{%comment}}
+</div>
+{{%include end.html}}

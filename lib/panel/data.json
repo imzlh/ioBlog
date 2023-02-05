@@ -1,0 +1,20 @@
+{
+    "user":{
+        "name":"",
+        "pw":"",
+        "email":"2131601562@qq.com"
+    },
+    "mail":{
+        "server":"smtp.163.com",
+        "user":"himzlh",
+        "pw":"",
+        "port":25,
+        "protocol":"ssl",
+        "type":"SMTP",
+        "from":"himzlh@163.com",
+        "name":"iz助手"
+    },
+    "opt":{
+        "mail_when_login":false
+    }
+}

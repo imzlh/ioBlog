@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ioPanel</title>
+        <script>location.href = '/panel/#/';</script>
+    </head>
+    <body onhashchange="page.to(document.location.hash.substring(2))">
+        <!-- 固定在头部的内容 -->
+        <div class="head">
+            <nav class="head">
+                <span>ioPanel</span>
+                <ul>
+                    <!-- 导航内容 -->
+                    <li onclick="location.href = '#/view/index';">主页</li>
+                    <li class="dropmenu">
+                        文章
+                        <!-- 下拉菜单 -->
+                        <div class="drop">
+                            <a href="#/post/write">写文章</a>
+                            <a href="#/post/manage">管理文章</a>
+                            <a href="#/post/cate">文章分类</a>
+                            <a href="#/post/tags">文章标签</a>
+                        </div>
+                    </li>
+                    <li class="dropmenu">
+                        插件
+                        <div class="drop" id="menu_plugin">
+                            <a href="#/plug/manage">管理插件</a>
+                            <a href="#/plug/store">应用中心</a>
+                            <a href="#/plug/add">导入插件</a>
+                            <hr>
+                            <a href="#/plug/link">快捷方式</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <noscript></noscript>
+        </div>
+
+        <!-- 首页 -->
+        <div id="page_home" class="box hide y-center page">
+            <!-- 欢迎 -->
+            <div style="width: 42vw;">
+                <h1 class="lb">
+                <script>
+                    var time = (new Date).getHours();
+                    if(time < 6 || time > 22) document.write('凌晨');
+                    else if(time < 12) document.write('早上');
+                    else if(time < 13) document.write('中午');
+                    else if(time < 18) document.write('下午');
+                    else document.write('晚上');
+                </script>
+                    好,欢迎您回来
+                </h1>
+                <div class="box">
+                    <div>
+                        <h1 id="table_visit">???</h1>
+                        <p>访问量</p>
+                    </div>
+                    <div>
+                        <h1 id="table_comments">???</h1>
+                        <p>条评论</p>
+                    </div>
+                    <div>
+                        <h1 id="table_runtime">???</h1>
+                        <p>持续运行</p>
+                    </div>
+                    <div>
+                        <h1 id="table_posts">???</h1>
+                        <p>文章总数</p>
+                    </div>
+                    <div>
+                        <h1 id="table_ip">???</h1>
+                        <p>IP总数</p>
+                    </div>
+                    <div>
+                        <h1 id="table_version">0.0</h1>
+                        <p>版本号</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 工具栏 -->
+            <div class="box" style="width:50vw" id="tool">
+                <div onclick="location.href='#/plug/manage';" class="href">
+                    <svg  fill="currentColor"  viewBox="0 0 16 16">
+                        <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                    </svg>
+                    <p>我的插件</p>
+                </div>
+                <div onclick="document.location.href = '#/post/comments';" class="href">
+                    <svg fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                        <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                    <p>文章评论</p>
+                </div>
+                <div onclick="document.location.href = '#/plugin/files';" class="href">
+                    <svg fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M14 4.5V9h-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v7H2V2a2 2 0 0 1 2-2h5.5L14 4.5zM13 12h1v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-2h1v2a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-2zM.5 10a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1H.5z"/>
+                    </svg>
+                    <p>文件管理</p>
+                </div>
+                <div onclick="document.location.href = '#/setting/global';" class="href">
+                    <svg fill="currentColor" viewBox="0 0 16 16">
+                        <path d="m11.42 2 3.428 6-3.428 6H4.58L1.152 8 4.58 2h6.84zM4.58 1a1 1 0 0 0-.868.504l-3.428 6a1 1 0 0 0 0 .992l3.428 6A1 1 0 0 0 4.58 15h6.84a1 1 0 0 0 .868-.504l3.429-6a1 1 0 0 0 0-.992l-3.429-6A1 1 0 0 0 11.42 1H4.58z"/>
+                        <path d="M6.848 5.933a2.5 2.5 0 1 0 2.5 4.33 2.5 2.5 0 0 0-2.5-4.33zm-1.78 3.915a3.5 3.5 0 1 1 6.061-3.5 3.5 3.5 0 0 1-6.062 3.5z"/>
+                    </svg>
+                    <p>全局设置</p>
+                </div>
+            </div>
+            <!-- 统计 -->
+            <div style="width:29vw;">
+                <canvas id="chart" style="max-width: 100%;">
+                    糟糕，你的浏览器不支持Canvas<br>
+                    这都什么时代了?坚守IE?
+                </canvas>
+            </div>
+            <!-- 评论 -->
+            <div style="width: 29vw;" id="comment">
+            
+            </div>
+            <!-- 消息 -->
+            <div style="width:30vw" id="home_msg">
+                
+            </div>
+        </div>
+
+        <!-- 右键助手 -->
+        <div class="drop hide" id="dropMenu">
+            <a onclick="windows.hideAll();">隐藏/显示窗口</a>
+            <a onclick="windows.destory();">消灭所有窗口</a>
+            <hr>
+            <a onclick="page.view.index(true);">刷新数据</a>
+        </div>
+
+        <!-- 右下侧工具栏 -->
+        <div id="toolBox" class="svgGroup">
+            <!-- 亮暗模式 -->
+            <svg fill="currentColor" id="mode_sun" viewBox="0 0 16 16" onclick="page.switch('moon');">
+                <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+            </svg>
+            <svg fill="currentColor" id="mode_moon" style="display: none;" viewBox="0 0 16 16" onclick="page.switch('sun')">
+                <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+            </svg>
+            <svg fill="currentColor" viewBox="0 0 16 16" onclick="page.user.exit();">
+                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+            </svg>
+            <svg fill="currentColor" viewBox="0 0 16 16" onclick="page.action.panel();">
+                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+            </svg>
+        </div>
+
+        <!-- 右上角提示栏 -->
+        <div id="msgBox"></div>
+
+        <!-- 亮暗模式的CSS区 -->
+        <style id="switch_style"></style>
+
+        <!-- 加载区 -->
+        <script>var _logined = {logined};</script>
+        <link rel="stylesheet" href="/panel/static/style.css">
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/marked/4.2.12/marked.min.js"></script>
+        <script src="/panel/static/main.js"></script>
+    </body>
+</html>
