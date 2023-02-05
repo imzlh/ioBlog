@@ -27,3 +27,9 @@ PHP有很多框架，但是我就是不用。即使有SQLite3这种简单易用�
  ![1](view/1.png)
   ![2](view/2.png)
    ![3](view/3.png)
+   
+# 安装指南
+首次接触，可以`php run.php -h`看看命令列表。确保PHP版本 `>=8.1` ，否则会报Fatal Error.
+当你准备就绪，可以`php run.php -s`或者指定端口号`php run.php --start=80`。
+浏览器打开{IP}:80，按照提示安装即可。当浏览器提示成功，重新执行`php run.php -s`
+想要LOG少一点?可以加参数--quiet！就这么简单...
